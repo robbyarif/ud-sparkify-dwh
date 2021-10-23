@@ -41,14 +41,7 @@ Song data: s3://udacity-dend/song_data
 Log data: s3://udacity-dend/log_data
 Log data json path: s3://udacity-dend/log_json_path.json
 
-## Results and notes
+## Results and Notes
 All fact tables are filled accordingly although we see some duplications for entries, such as multiple artists name with different id or location. 
 
-
-
-From the sample dataset the data shows each dimension tables are filled accordingly.
-![Result 1](img/sparkify-result-1.png)
-![Result 2](img/sparkify-result-2.png)
-
-The `songplays` fact table is also filled but mostly or all of them has no song_id and artist_data due to small sample data set.
-![Result 3](img/sparkify-result-3.png)
+Some of the results can be checked in `test.ipynb`.  
