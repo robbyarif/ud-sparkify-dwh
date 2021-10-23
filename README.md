@@ -29,19 +29,26 @@ to start ETL process which will run SQL commands for Redshift to start copy S3 J
 which will be used by Sparkify's Data Analytics.
 
 ## Database Schema
-Overall, this project still follows database schema that was defined in Sparkify Data Modelling project with some customization for Redshift implementation.
+Overall, this project's analytic table still follows database schema that was defined in Sparkify Data Modelling project with some customization for Redshift implementation.
 
 ![ERD](img/sparkify-erd.png)
 
 The database schema consists of `songplays` table as the fact table with refers to `users`, `songs`, `artists`, and `time` table as the dimension tables.
 
+In the `songplays` fact table, `artist_id` is selected as Distribution Key and `start_time` is selected as Sort Key. Dimension tables are set to be broadcasted to all Redshift slices (All Distribution).
+
 
 ## Data Source
-Song data: s3://udacity-dend/song_data
-Log data: s3://udacity-dend/log_data
-Log data json path: s3://udacity-dend/log_json_path.json
+- Song data: s3://udacity-dend/song_data
+- Log data: s3://udacity-dend/log_data
+- Log data json path: s3://udacity-dend/log_json_path.json
 
 ## Results and Notes
 All fact tables are filled accordingly although we see some duplications for entries, such as multiple artists name with different id or location. 
 
 Some of the results can be checked in `test.ipynb`.  
+
+## Acknowledgement
+- Issue on user duplication as discussed in [this knowledge hub](https://knowledge.udacity.com/questions/39503)
+
+
